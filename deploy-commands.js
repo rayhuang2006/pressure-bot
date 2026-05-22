@@ -1,4 +1,5 @@
 const { REST, Routes, SlashCommandBuilder } = require('discord.js');
+require('dotenv').config();
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -19,6 +20,21 @@ const commands = [
     .addUserOption((option) =>
       option.setName('對象').setDescription('要 @ 的對象（選填）').setRequired(false)
     ),
+  new SlashCommandBuilder()
+    .setName('反駁模式')
+    .setDescription('開始自動反駁某個人說的每一句話')
+    .addUserOption((option) =>
+      option.setName('對象').setDescription('要反駁的對象').setRequired(true)
+    )
+    .addIntegerOption((option) =>
+      option.setName('時間').setDescription('反駁幾分鐘（預設 3 分鐘）').setRequired(false)
+    ),
+  new SlashCommandBuilder()
+    .setName('停止反駁')
+    .setDescription('停止反駁某個人')
+    .addUserOption((option) =>
+      option.setName('對象').setDescription('要停止反駁的對象').setRequired(true)
+    ),
 ].map((cmd) => cmd.toJSON());
 
 const rest = new REST().setToken(TOKEN);
@@ -32,4 +48,3 @@ const rest = new REST().setToken(TOKEN);
     console.error('註冊失敗：', error);
   }
 })();
-
