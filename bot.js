@@ -70,15 +70,14 @@ const flipTable = [
 
 const fallbackReplies = [
   '才不是',
+  '不要',
   '並沒有',
   '你確定？',
   '我不覺得',
   '反對',
   '不是這樣吧',
-  '才怪',
-  '怎麼可能',
+  '怎麼會',
   '想太多',
-  '你再想想',
 ];
 
 // 存正在被反駁的人 { odjectId: { channelId, expiresAt } }
