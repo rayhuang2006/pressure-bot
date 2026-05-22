@@ -1,0 +1,14 @@
+{
+  "name": "pressure-bot",
+  "version": "1.0.0",
+  "description": "頂級倉庫語錄產生器 Discord Bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.0",
+    "dotenv": "^17.4.2"
+  }
+}
